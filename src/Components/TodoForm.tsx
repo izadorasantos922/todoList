@@ -2,8 +2,8 @@ import {useState, FormEvent} from 'react';
 import { TodoTypeForm } from '../Types/Types';
 
 const TodoForm: React.FC<TodoTypeForm> = ({addTodo}) => {
-const [value, setValue] = useState<string | null>("");
-const [category, setCategory] = useState<string | null>("");
+const [value, setValue] = useState<string>("");
+const [category, setCategory] = useState<string>("");
 
 function handleSubmit(e: FormEvent<HTMLFormElement>): void{
     e.preventDefault();
@@ -14,10 +14,10 @@ function handleSubmit(e: FormEvent<HTMLFormElement>): void{
     <form action="" onSubmit={handleSubmit}>
       <h1>Create task</h1>
         <label htmlFor="" >Text</label>
-        <input type="text" name="" id="" value={value || ""} onChange={(e) => setValue(e.target.value)}
+        <input type="text" name="" id="" value={value} onChange={(e) => setValue(e.target.value)}
         />
         <label htmlFor="">Category</label>
-        <select name="" id="" value={category || ""} onChange={(e) => setCategory(e.target.value)}>
+        <select name="" id="" value={category} onChange={(e) => setCategory(e.target.value)}>
         <option value="" selected>Select</option>
             <option value="Home">Home</option>
             <option value="Study">Study</option>

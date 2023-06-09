@@ -5,14 +5,14 @@ import TodoForm from './Components/TodoForm';
 import Todo from './Components/Todo';
 import Search from './Search';
 
-const getLocalStorage = () =>{
-  let todo = localStorage.getItem('todos');
-  if(todo){
-    return (todo = JSON.parse(localStorage.getItem('todos')));
-  }else{
+const getLocalStorage = () => {
+  const todo = localStorage.getItem('todos');
+  if (todo !== null && todo !== "") {
+    return JSON.parse(todo);
+  } else {
     return [];
   }
-}
+};
 
 function App() {
   const [todos, setTodos] = useState<TodoType[]>(getLocalStorage());
@@ -51,7 +51,7 @@ function App() {
     <div className="app">
       <h1>Todo List</h1>
       <Search input={input} setInput={setInput}/>
-    <div className="todo-list">
+      <div className="todo-list">
         {todos
         .filter((todo) => todo.text.toLowerCase().includes(input.toLowerCase()))
         .map((todo) =>(
