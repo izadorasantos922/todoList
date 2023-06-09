@@ -11,7 +11,7 @@ export type TodoTypeForm = {
 
 export interface StringSearch{
     input: string;
-    setInput: string;
+    setInput: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface TodoProps {
